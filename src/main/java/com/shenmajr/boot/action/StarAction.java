@@ -37,8 +37,7 @@ public class StarAction {
 	public String savaAStar(HttpServletRequest request, Star star){
 		star.setName(request.getParameter("name"));
 		star.setNickname(request.getParameter("nickname"));
-		star.setMensurations(request.getParameter("mensurations").split(","));
-//		star.setMensurations(CommonUtils.stringToInt(mensurations));
+		star.setMensurations(request.getParameter("mensurations"));
 		star.setRecordStatus(Status.NORMAL);
 		starServices.create(star);
 		return "redirect:/star/all";

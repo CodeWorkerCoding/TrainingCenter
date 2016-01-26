@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import com.shenmajr.boot.utils.UUIDUtil;
@@ -36,7 +37,7 @@ public class Star implements Serializable  {
 	/**
 	 * 三围
 	 */
-	private String[] mensurations;
+	private String mensurations;
 	/**
 	 * 作品链接
 	 */
@@ -56,6 +57,10 @@ public class Star implements Serializable  {
 	public void createOn() {
 		this._id = UUIDUtil.genUUID();
 		this.createTime = new Date();
+		this.updateTime = new Date();
+	}
+	@PreUpdate
+	public void modify(){
 		this.updateTime = new Date();
 	}
 	
@@ -83,11 +88,11 @@ public class Star implements Serializable  {
 		this.nickname = nickname == null ? null : nickname.trim();
 	}
 
-	public String[] getMensurations() {
+	public String getMensurations() {
 		return mensurations;
 	}
 
-	public void setMensurations(String[] mensurations) {
+	public void setMensurations(String mensurations) {
 		this.mensurations = mensurations;
 	}
 	

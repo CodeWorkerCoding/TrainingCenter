@@ -16,10 +16,4 @@ public class HomeAction {
 		logger.info("this is greet Method");
 		return "home";
 	}
-	@RequestMapping("/greet")
-	@ResponseBody
-	public String sayHi() {
-		return "fuck you";
-	}
-	
 }

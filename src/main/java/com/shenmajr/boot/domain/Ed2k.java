@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import com.shenmajr.boot.utils.UUIDUtil;
@@ -43,6 +44,11 @@ public class Ed2k implements Serializable {
 	public void createOn() {
 		this._id = UUIDUtil.genUUID();
 		this.createTime = new Date();
+		this.updateTime = new Date();
+	}
+	
+	@PreUpdate
+	public void modify(){
 		this.updateTime = new Date();
 	}
 	
