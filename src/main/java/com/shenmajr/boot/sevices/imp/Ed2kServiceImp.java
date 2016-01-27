@@ -17,7 +17,7 @@ public class Ed2kServiceImp implements Ed2kService {
 
 	@Override
 	public int update(Ed2k ed2k) {
-		
+		ed2kRepo.saveAndFlush(ed2k);
 		return 0;
 	}
 
@@ -28,7 +28,7 @@ public class Ed2kServiceImp implements Ed2kService {
 
 	@Override
 	public List<Ed2k> getAll() {
-		return ed2kRepo.findAll();
+		return ed2kRepo.getAll();
 	}
 
 	@Override

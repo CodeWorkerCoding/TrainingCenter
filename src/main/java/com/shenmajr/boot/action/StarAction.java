@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -48,6 +49,14 @@ public class StarAction {
 		List<Star> stars = starServices.getAll();
 		model.addAttribute("stars", stars);
 		return "star/all";
+	}
+	
+	@RequestMapping("/{id}/del")
+	public String delStar(@PathVariable(value="id") String id) {
+		Star star = starServices.getObj(id);
+		star.setRecordStatus(Status.DELETE);
+		starServices.update(star);
+		return "redirect:/star/all";
 	}
 	
 }

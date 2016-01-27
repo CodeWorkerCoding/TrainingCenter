@@ -25,6 +25,7 @@ public class StarServiceImp implements StarServices {
 
 	@Override
 	public int update(Star entity) {
+		starRepo.saveAndFlush(entity);
 		return 0;
 	}
 
@@ -35,7 +36,7 @@ public class StarServiceImp implements StarServices {
 
 	@Override
 	public List<Star> getAll() {
-		return starRepo.findAll();
+		return starRepo.getAll();
 	}
 
 	@Override
