@@ -16,14 +16,13 @@ public class Ed2kServiceImp implements Ed2kService {
 	private Ed2kRepo ed2kRepo;
 
 	@Override
-	public int update(Ed2k ed2k) {
-		ed2kRepo.saveAndFlush(ed2k);
-		return 0;
+	public Ed2k update(Ed2k ed2k) {
+		return ed2kRepo.saveAndFlush(ed2k);
 	}
 
 	@Override
-	public int del(String _id) {
-		return 0;
+	public boolean del(String _id) {
+		return true;
 	}
 
 	@Override
@@ -37,8 +36,7 @@ public class Ed2kServiceImp implements Ed2kService {
 	}
 
 	@Override
-	public int create(Ed2k entity) {
-		ed2kRepo.save(entity);
-		return 0;
+	public Ed2k create(Ed2k entity) {
+		return ed2kRepo.save(entity);
 	}
 }

@@ -37,5 +37,15 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<nav class="col-sm-offset-4 col-sm-8">
+		<ul class="pagination">
+		    <li><a href="#">上一页</a></li>
+		    <li class="active"><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">下一页</a></li>
+		 </ul>
+	</nav>
 </body>
 </html>

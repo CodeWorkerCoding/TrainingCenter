@@ -3,7 +3,8 @@ package com.shenmajr.boot.domain;
 public enum Status {
 	NORMAL(0,"正常"), //正常
 	DELETE(1,"删除"), //删除
-	RETREAD(2,"隐退"); //隐退
+	RETREAD(2,"隐退"), //隐退
+	EXPIRE(3,"过期"); //过期
 	
 	private int flag;
 	private String desc;

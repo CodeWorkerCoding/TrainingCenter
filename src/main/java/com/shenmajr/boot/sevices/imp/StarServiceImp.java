@@ -1,9 +1,13 @@
 package com.shenmajr.boot.sevices.imp;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.shenmajr.boot.domain.Ed2k;
@@ -18,20 +22,18 @@ public class StarServiceImp implements StarServices {
 	private StarRepo starRepo;
 	
 	@Override
-	public int create(Star entity) {
-		starRepo.save(entity);
-		return 0;
+	public Star create(Star entity) {
+		return starRepo.save(entity);
 	}
 
 	@Override
-	public int update(Star entity) {
-		starRepo.saveAndFlush(entity);
-		return 0;
+	public Star update(Star entity) {
+		return starRepo.saveAndFlush(entity);
 	}
 
 	@Override
-	public int del(String id) {
-		return 0;
+	public boolean del(String id) {
+		return true;
 	}
 
 	@Override
@@ -48,6 +50,11 @@ public class StarServiceImp implements StarServices {
 	@Override
 	public Star getObj(String id) {
 		return starRepo.getOne(id);
+	}
+
+	@Override
+	public Map<String, Object> findByPage(Pageable pageRequest, HttpServletRequest request) {
+		return null;
 	}
 	
 }

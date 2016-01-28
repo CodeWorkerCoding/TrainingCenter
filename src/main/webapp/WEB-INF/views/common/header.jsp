@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <% String root = request.getContextPath(); %>
 
-<link href="<%=root%>/images/bootstrap.ico" rel="shortcut icon" />
+<link href="<%=root%>/image/bootstrap.ico" rel="shortcut icon" />
 
 <link rel="stylesheet" href="<%=root %>/bootstrap/css/bootstrap.min.css">
 <link href="<%=root%>/css/responsive.css" rel="stylesheet">

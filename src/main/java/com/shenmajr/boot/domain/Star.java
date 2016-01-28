@@ -45,6 +45,12 @@ public class Star implements Serializable  {
 			, mappedBy="star")
 	//updatable=false 很关键，在级联删除的时候就会报错(反转的问题)
 	private Set<Ed2k> ed2ks;
+	/**
+	 * 图片
+	 */
+	@OneToMany(targetEntity=Attachment.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY,
+			mappedBy="star")
+	private Set<Attachment> images;
 	
 	private Date createTime;
 	private Date updateTime;

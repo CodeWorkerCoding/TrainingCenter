@@ -25,7 +25,8 @@
 				</thead>			
 				<c:forEach var="star" items="${stars}" >
 					<tr>
-						<td>${star._id}</td>
+						<td><a href="#"><img alt="" src="/upload/abd801ebdba144c99d4b8378edc7be31/屏幕快照 2016-01-15 下午3.15.44.png"></a></td>
+						<%-- <td>${star._id}</td> --%>
 						<td>${star.name}</td>
 						<td>${star.nickname}</td>
 						<td>${star.mensurations}</td>
