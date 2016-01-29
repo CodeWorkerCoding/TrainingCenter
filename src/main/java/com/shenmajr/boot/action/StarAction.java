@@ -3,11 +3,15 @@ package com.shenmajr.boot.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +30,8 @@ import com.shenmajr.boot.sevices.imp.AttachmentService;
 @RequestMapping(value="/star")
 public class StarAction {
 
+	private final static Integer PAGE_MIN = 1;
+	private final static Integer PAGE_MAX = 20;
 	@Autowired
 	private StarServices starServices;
 	@Autowired
@@ -53,7 +59,7 @@ public class StarAction {
 			Attachment saveAttach = attachmentService.upload(file,attachment);
 			if (saveAttach != null) {
 				out.print("添加成功明星成功");
-				return "redirect:/star/all";
+				return "redirect:/star/allbypage";
 			}
 		} else {
 			out.print("添加失败");
@@ -65,9 +71,14 @@ public class StarAction {
 	
 	@RequestMapping(value="/allbypage", method={RequestMethod.GET, RequestMethod.POST})
 	public String AllStar(@RequestParam(defaultValue = "1", required = false) final Integer page,
-			@RequestParam(defaultValue = "20", required = false) final Integer pagesize,
-			final Model model, HttpServletRequest request){
-		return null;
+			@RequestParam(defaultValue = "10", required = false) final Integer pagesize,
+			final Map<String, Object> model, HttpServletRequest request){
+		final Map<String, Object> result = starServices.findByPage(
+				new PageRequest(page < PAGE_MIN ? 0 : page - 1, 
+						pagesize > PAGE_MAX ? PAGE_MAX : pagesize, new Sort(Direction.DESC, "updateTime")), 
+				request);
+		model.putAll(result);
+		return "/star/all";
 	}
 	
 	@RequestMapping(value="/all",method=RequestMethod.GET)
@@ -87,7 +98,7 @@ public class StarAction {
 		Star star = starServices.getObj(id);
 		star.setRecordStatus(Status.DELETE);
 		starServices.update(star);
-		return "redirect:/star/all";
+		return "redirect:/star/allbypage";
 	}
 	/**
 	 * Description: 处理添加明星时上传的图片 (暂时只能使用表单提交，所以这方法暂
@@ -135,5 +146,18 @@ public class StarAction {
 			}
 		}
 		return "redirect:/star/all";
+	}
+	
+	@RequestMapping(value="/{id}/look", method={RequestMethod.GET, RequestMethod.POST})
+	public String checkStar(@PathVariable("id") String id, Model model){
+		Star star = starServices.getObj(id);
+		model.addAttribute("star", star);
+		return "star/info";
+	}
+	@RequestMapping(value="{/id}/modify", method={RequestMethod.GET, RequestMethod.POST})
+	public String modifyStar(@PathVariable("id") String id, Model model){
+		Star star = starServices.getObj(id);
+		model.addAttribute("star", star);
+		return "star/modify";
 	}
 }

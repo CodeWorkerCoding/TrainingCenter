@@ -26,26 +26,39 @@
 				<tr>
 					<td><a href="/ed2k/${ed2k._id}/look">${ed2k.designation}</a></td>
 					<td><a href="/star/${ed2k.star._id}/look">${ed2k.star.name}</a></td>
-					<td><a href="${ed2k.ed2k}">${ed2k.ed2k}</a></td>
-					<td>${ed2k.createTime}</td>
-					<td>${ed2k.updateTime}</td>
+					<td><a href="${ed2k.ed2k}"><span class="ed2k">${ed2k.ed2k}</span></a></td>
 					<td>
-						<a href="/ed2k/${ed2k._id}/modify"><span>修改</span></a>
-						<a href="/ed2k/${ed2k._id}/del"><span>删除</span></a>
+						<fmt:formatDate value="${ed2k.createTime}" pattern="yyyy-MM-dd"></fmt:formatDate>
+					</td>
+					<td>
+						<fmt:formatDate value="${ed2k.updateTime}" pattern="yyyy-MM-dd"></fmt:formatDate>
+					</td>
+					<td>
+						<a href="/ed2k/${ed2k._id}/modify"><span><i class="glyphicon glyphicon-pencil"> </i>修改</span></a>
+						<a href="/ed2k/${ed2k._id}/del"><span><i class="glyphicon glyphicon-trash"></i>删除</span></a>
 					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<nav class="col-sm-offset-4 col-sm-8">
+	<div>总页数：${pages.totalPages} &nbsp;&nbsp;&nbsp;总条数：${pages.totalElements}</div>
+	<!-- bootstrap的分页插件 -->
+	<div class="nav-page">
 		<ul class="pagination">
-		    <li><a href="#">上一页</a></li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">下一页</a></li>
-		 </ul>
-	</nav>
+			<li><a href="/star/allbypage?page=1">首页</a></li>
+			<c:if test="${pages.number>0}">
+				<li><a href="/star/allbypage?page=${pages.number}">&laquo;</a></li>
+			</c:if>
+			<c:if test="${pages.totalPages > 5 && pages.number + 6 <= pages.totalPages}">
+				<c:forEach begin="${pages.number + 1}" end="${pages.number + 5}" var="currpage">
+					<li><a href="/star/allbypage?page=${currpage}">${currpage}</a></li>
+				</c:forEach>
+			</c:if>
+			<c:if test="${page.number + 1 < pages.totalPages}">
+				<li><a href="/star/allbypage?page=${pages.number+2}">&raquo;</a></li>
+			</c:if>
+			<li><a href="/star/allbypage?page=1">尾页</a></li>
+		</ul>
+	</div>
 </body>
 </html>

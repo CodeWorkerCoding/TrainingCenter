@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -54,6 +56,8 @@ public class Star implements Serializable  {
 	
 	private Date createTime;
 	private Date updateTime;
+	
+	@Enumerated(EnumType.ORDINAL)
 	private Status  recordStatus;
 	
 	public Star() {

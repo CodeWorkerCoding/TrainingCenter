@@ -22,7 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.shenmajr.boot.domain.Attachment;
 import com.shenmajr.boot.domain.Status;
 import com.shenmajr.boot.repo.AttachmentRepo;
-import com.shenmajr.boot.utils.UUIDUtil;
 
 @Service
 @ConfigurationProperties(prefix= "boot.app")
@@ -53,7 +52,7 @@ public class AttachmentService {
 		String originalFilename = myfile.getOriginalFilename();
 		String slashType = (originalFilename.lastIndexOf("\\") > 0) ? "\\" : "/";
 		int startIndex=originalFilename.lastIndexOf(slashType);
-		String newfilename = UUIDUtil.genUUID();
+		String newfilename =	 StringUtils.defaultIfEmpty(attach.getStar().getName(), "null");
 		String filename = originalFilename.substring(startIndex + 1, originalFilename.length());
 		String realPath = attachdir + "/" + newfilename + "/" + filename;
 		
@@ -66,7 +65,7 @@ public class AttachmentService {
 					|| lowerName.endsWith(".bmp"))
 					&& myfile.getSize() > maxFileSize * 1024 * 1024) {
 				
-				File tempFile = new File(attachdir + newfilename + "temp" + filename);
+				File tempFile = new File(attachdir + newfilename + "/temp/" + filename);
 			
 				FileUtils.copyInputStreamToFile(myfile.getInputStream(), tempFile);
 				

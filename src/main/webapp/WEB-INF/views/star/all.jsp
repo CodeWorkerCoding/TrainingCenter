@@ -14,10 +14,11 @@
 			<tbody>
 				<thead>
 					<tr>
-						<th>编号</th>
+						<th>头像</th>
 						<th>姓名</th>
 						<th>别名</th>
 						<th>描述</th>
+						<th>状态</th>
 						<th>添加时间</th>
 						<th>最近修改时间</th>
 						<th>操作</th>
@@ -25,20 +26,49 @@
 				</thead>			
 				<c:forEach var="star" items="${stars}" >
 					<tr>
-						<td><a href="#"><img alt="" src="/upload/abd801ebdba144c99d4b8378edc7be31/屏幕快照 2016-01-15 下午3.15.44.png"></a></td>
+						<td>
+							<a href="/star/${star._id}/look">
+								<img alt="" src="/upload/abd801ebdba144c99d4b8378edc7be31/屏幕快照 2016-01-15 下午3.15.44.png" class="img-rounded">
+							</a>
+						</td>
 						<%-- <td>${star._id}</td> --%>
-						<td>${star.name}</td>
+						<td>
+							<a href="/star/${star._id}/look">${star.name}</a>
+						</td>	
 						<td>${star.nickname}</td>
 						<td>${star.mensurations}</td>
-						<td>${star.createTime}</td>
-						<td>${star.updateTime}</td>
+						<td>${star.recordStatus.desc}</td>
 						<td>
-							<a href="/star/${star._id}/modify"><span>修改</span></a>
-							<a href="/star/${star._id}/del"><span>删除</span></a>
+							<fmt:formatDate value="${star.createTime}" pattern="yyyy-MM-dd"/>
+						</td>
+						<td>
+							<fmt:formatDate value="${star.updateTime}" pattern="yyyy-MM-dd"></fmt:formatDate>
+						<td>
+							<a href="/star/${star._id}/modify"><span><i class="glyphicon glyphicon-pencil"> </i>修改</span></a>
+							<a href="/star/${star._id}/del"><span><i class="glyphicon glyphicon-trash"> </i>删除</span></a>
 						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<div>总页数：${pages.totalPages} &nbsp;&nbsp;&nbsp;总条数：${pages.totalElements}</div>
+		<!-- bootstrap的分页插件 -->
+		<div class="nav-page">
+			<ul class="pagination">
+				<li><a href="/star/allbypage?page=1">首页</a></li>
+				<c:if test="${pages.number>0}">
+					<li><a href="/star/allbypage?page=${pages.number}">&laquo;</a></li>
+				</c:if>
+				<c:if test="${pages.totalPages > 5 && pages.number + 6 <= pages.totalPages}">
+					<c:forEach begin="${pages.number + 1}" end="${pages.number + 5}" var="currpage">
+						<li><a href="/star/allbypage?page=${currpage}">${currpage}</a></li>
+					</c:forEach>
+				</c:if>
+				<c:if test="${page.number + 1 < pages.totalPages}">
+					<li><a href="/star/allbypage?page=${pages.number+2}">&raquo;</a></li>
+				</c:if>
+				<li><a href="/star/allbypage?page=1">尾页</a></li>
+			</ul>
+		</div>
 </body>
 </html>

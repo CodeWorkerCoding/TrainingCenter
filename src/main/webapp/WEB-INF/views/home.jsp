@@ -29,7 +29,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">主页</a></li>
+            <li><a href="/"><i class="gylphicon gylphicon-home"> </i>主页</a></li>
             <li><a href="#">设置</a></li>
             <li><a href="#">登入</a></li>
             <li><a href="#">帮助</a></li>
@@ -47,7 +47,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="star active">
-            		<a href="javascript:void(0)" onclick="loadByClass('/star/all','.star')">
+            		<a href="javascript:void(0)" onclick="loadByClass('/star/allbypage','.star')">
             			<i class="glyphicon glyphicon-user"> </i>
             			<span>明星</span>
             			</a>
@@ -59,7 +59,7 @@
             		</a>
             	</li>
             <li class="alls">
-            		<a href="javascript:void(0)" onclick="loadByClass('/star/all','.alls')">
+            		<a href="javascript:void(0)" onclick="loadByClass('/star/allbypage','.alls')">
             			<i class="glyphicon glyphicon-text-color"> </i>
             			<span>所有明星</span>
             		</a>
@@ -67,7 +67,7 @@
           </ul>
           <ul class="nav nav-sidebar">
             <li class="ed2k">
-            		<a href="javascript:void(0)" onclick="loadByClass('/ed2k/all','.ed2k')">
+            		<a href="javascript:void(0)" onclick="loadByClass('/ed2k/allbypage','.ed2k')">
             			<i class="glyphicon glyphicon-film"> </i>
             			<span>作品地址</span>
             		</a>
@@ -79,7 +79,7 @@
             		</a>
             	</li>
             <li class="alle">
-            		<a href="javascript:void(0)" onclick="loadByClass('/ed2k/all','.alle')">
+            		<a href="javascript:void(0)" onclick="loadByClass('/ed2k/allbypage','.alle')">
             			<i class="glyphicon glyphicon-text-color"> </i>
             			<span>所有的种子</span>
             		</a>
@@ -94,7 +94,7 @@
           </ul> -->
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">XXXXX<!-- 欢迎使用明星作品收集系统 --></h1>
+          <h1 class="page-header"><!-- XXXXX -->欢迎使用明星作品收集系统</h1>
 
          <!--  <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -106,7 +106,7 @@
 
           <!-- <h3 class="sub-header">明星</h3> -->
           <div class="table-responsive">
-          		<iframe class="myiframe" src="/star/all">
+          		<iframe class="myiframe" src="/star/allbypage">
           		</iframe>          		
             <!-- <table class="table table-striped">
               <thead>

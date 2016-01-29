@@ -4,3 +4,8 @@
 .mytable caption{text-align: center; font-family: 微软雅黑; font-size: 24pt; font-weight: bold; color: #000}
 .mytable td{font-size: 20pt; }
 .mytable td img {width: 65px; height: 65px; border: 1px solid #112D46;}
+.mytable .ed2k{display: inline-block; width: 200px; overflow: hidden;}
+.mytable .ed2k:hover{width: auto;}
+
+/**分页插件属性*/
+.nav-page{text-align: center;}

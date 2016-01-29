@@ -36,6 +36,12 @@ function checkStar(){
 	var starname=$("#starname").val();
 	var starimge=$("#starimage").val();
 	if("" == starname){
+		$("#starname").bind("onchange",function(e){
+			alert("bind the Event successful");
+			if("" != $("#starname").val()){
+				$("#submit").removeAttr("disabled");
+			}
+		});
 		alert("请输入明星姓名再提交...");
 		$("#starname").focus();
 		return ;
@@ -56,6 +62,11 @@ function checkEd2k(){
 	var designation = $("#designation").val();
 	var areaed2k = $("#areaed2k").val();
 	if("" == designation){
+		$("#designation").bind("onblur",function(e){
+			if("" != $("#designation").val()){
+				$("#submit").removeAttr("disabled");
+			}
+		});
 		alert("请填写作品名称后再提交...");
 		$("#designation").focus();
 		return false;

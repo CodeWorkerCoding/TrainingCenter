@@ -6,11 +6,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
 import com.shenmajr.boot.domain.Star;
 
-public interface StarRepo extends JpaRepository<Star, String> {
+public interface StarRepo extends JpaRepository<Star, String>,JpaSpecificationExecutor<Star> {
 	@Query("SELECT s FROM Star s WHERE s.recordStatus != 1")
 	public List<Star> getAll();
 	/**
@@ -20,5 +21,5 @@ public interface StarRepo extends JpaRepository<Star, String> {
 	 * @return
 	 * Created by fujianjian 2016年1月28日
 	 */
-	public Page<Star> findAll(Specification<Star> specification, Pageable page);
+	Page<Star> findAll(Specification<Star> specification, Pageable page);
 }
