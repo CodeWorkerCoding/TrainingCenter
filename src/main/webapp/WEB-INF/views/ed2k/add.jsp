@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<label for="areaed2k" class="col-sm-2 control-label">Ed2ks</label>
 				<div class="col-sm-8">
-					<textarea id="areaed2k" rows="15" class="form-control" placeholder="请输入Ed2k地址...." name="ed2k" aria-describedby="areahelp" onchange="javascript:checkEd2k();"></textarea>
+					<textarea id="areaed2k" rows="15" class="form-control" placeholder="请输入Ed2k地址...." name="ed2k" aria-describedby="areahelp" required="required"></textarea>
 					<span id="areahelp" class="help-block">
 						请入Ed2k地址，如果由多个地址请用回车加以区分.
 					</span>

@@ -12,7 +12,7 @@
 		<div class="form-group">
 			<label for="starname" class="col-sm-3 control-label">明星姓名</label>
 			<div class="col-sm-6">
-				<input type="text" class="form-control" id="starname" name="name" placeholder="请输入明星的姓名" autocomplete="on">
+				<input type="text" class="form-control" id="starname" name="name" placeholder="请输入明星的姓名" autocomplete="on" required="required" autofocus="true">
 			</div>
 		</div>
 		<div class="form-group">
@@ -30,12 +30,12 @@
 		<div class="form-group">
 			<label for="starimage" class="col-sm-3 control-label">请上传明星图片</label>
 			<div class="col-sm-6">
-				<input type="file" class="form-control" id="starimage" name="image" onchange="javascript: checkStar();">
+				<input type="file" class="form-control" id="starimage" name="image" required="required">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-3 col-sm-6">
-				<button type="submit" class="btn btn-primary" disabled="disabled" id="submit">提交</button>
+				<button type="submit" class="btn btn-primary" id="submit">提交</button>
 				<button type="reset" class="btn btn-default">重新填写</button>
 			</div>
 		</div>
