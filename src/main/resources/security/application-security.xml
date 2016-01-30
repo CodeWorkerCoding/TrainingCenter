@@ -9,13 +9,19 @@
         http://www.springframework.org/schema/security/spring-security.xsd
         ">
        
-       <security:http security="none" pattern="/login.jsp"/>	
+       <!-- <security:http security="none" pattern="/login.jsp"/>	
        <security:http auto-config="true">
        		<security:form-login login-page="/login.jsp"
        			login-processing-url="/login" username-parameter="username" password-parameter="password" />
-       		<!-- <security:intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS"/> -->
-  			<security:intercept-url pattern="/**" access="ROLE_USER"/>     		
-       </security:http>
+       		<security:intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS"/>
+       		<security:intercept-url pattern="/js/**" filters="none"/>
+       		<security:intercept-url pattern="/bootstrap/**" filters="none"/>
+       		<security:intercept-url pattern="/css/**" filters="none"/>
+       		<security:intercept-url pattern="/jquery/**" filters="none"/>
+       		<security:intercept-url pattern="/image/**" filters="none"/>
+       		<security:intercept-url pattern="/upload/**" filters="none"/>
+  			<security:intercept-url pattern="/**" access="ROLE_USER"/>   		
+       </security:http> -->
        
        <security:authentication-manager>
        		<security:authentication-provider>
