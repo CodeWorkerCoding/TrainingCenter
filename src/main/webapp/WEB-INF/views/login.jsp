@@ -10,14 +10,14 @@
 </head>
 <body>
 	<div class="mylogin">
-		<form action="" method="post" class="form-horizontal">
+		<form action="/login" method="post" class="form-horizontal">
 			<div class="form-group">
 				<h2 class="col-sm-offset-4 col-sm-6">请登入...</h2>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label" for="useraccount">账户:</label>
 				<div class="col-sm-8">
-					<input type="email" name="email" id="useraccount" class="form-control" placeholder="邮箱" required="required" autofocus="true"/>
+					<input type="text" name="username" id="useraccount" class="form-control" placeholder="邮箱" required="required" autofocus="true"/>
 				</div>
 			</div>
 			<div class="form-group">
