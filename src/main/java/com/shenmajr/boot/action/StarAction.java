@@ -38,7 +38,7 @@ public class StarAction {
 	private AttachmentService attachmentService;
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
-	public String AddAStar(Model model, Star star){
+	public String addAStar(Model model, Star star){
 		model.addAttribute("star", star);
 		return "star/add";
 	}

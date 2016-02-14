@@ -8,7 +8,7 @@
 <title>添加star</title>
 </head>
 <body>
-	<form action="/star/save" method="post" class="form-horizontal form" enctype="multipart/form-data">
+	<form action="/star/save" method="post" class="form-horizontal form" enctype="multipart/form-data" name="star">
 		<div class="form-group">
 			<label for="starname" class="col-sm-3 control-label">明星姓名</label>
 			<div class="col-sm-6">
