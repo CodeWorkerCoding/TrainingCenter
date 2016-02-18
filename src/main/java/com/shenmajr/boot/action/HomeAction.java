@@ -1,13 +1,12 @@
 package com.shenmajr.boot.action;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeAction {
@@ -21,23 +20,18 @@ public class HomeAction {
 	}
 	
 	@RequestMapping(value="/login" ,method=RequestMethod.GET)
-	public String sendLogin(){
+	public String sendLogin(@RequestParam(name="error",required=false) String error,
+			@RequestParam(name="logout",required=false) String logout,
+			Model model){
+		if (error != null) {
+			model.addAttribute("error", "Invalid UserName and Password");
+		}
+		if (logout != null) {
+			model.addAttribute("msg", "You've been logged out successfully");
+		}
 		if (logger.isInfoEnabled()) {
 			logger.info("send the login Page to clients");
 		}
 		return "login";
-	}
-	@RequestMapping(value="/login" ,method=RequestMethod.POST)
-	public String handleLogin(HttpServletRequest request){
-		if (logger.isInfoEnabled()) {
-			logger.info("request the system login modules");
-		}
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		if (("admin" == username) && ("admin" == password)) {
-			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
-		}
-		return "redirect:/home";
 	}
 }

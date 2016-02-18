@@ -18,5 +18,23 @@ body {
 /**
  * 我的登入登入页面调试 
  */
-.mylogin{width: 400px; height:  300px; margin: 200px auto; }
+.mylogin{width: 400px; height: 340px; margin: 200px auto; }
+.mylogin .error {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+.mylogin .msg {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
 
