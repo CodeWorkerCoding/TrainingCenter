@@ -19,7 +19,9 @@ public class CommonConfiguration extends WebMvcConfigurerAdapter {
 	public void addInterceptors(InterceptorRegistry registry) {
 		super.addInterceptors(registry);
 		registry.addInterceptor(loggerInterceptor)
-			.addPathPatterns("/**").excludePathPatterns("/login**");
+			.addPathPatterns("/**")
+			.excludePathPatterns("/login**")
+			.excludePathPatterns("/userandrole/**");
 		registry.addInterceptor(commonInterceptor)
 			.addPathPatterns("/star/**")
 			.addPathPatterns("/ed2k/**");

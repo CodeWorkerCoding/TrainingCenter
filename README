@@ -1,2 +1,4 @@
 1, 参考如下链接实现数据库存储用户登入信息，
 	http://blog.csdn.net/shehun1/article/details/45394077
+2, 热部署Spring boot项目 --->>项目启动时添加如下VM参数：
+	-javaagent:/Users/a123/config/springloaded-1.2.5.RELEASE.jar -noverify
