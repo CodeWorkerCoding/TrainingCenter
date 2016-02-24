@@ -155,10 +155,12 @@ public class StarAction {
 	@RequestMapping(value="/{id}/look", method={RequestMethod.GET, RequestMethod.POST})
 	public String checkStar(@PathVariable("id") String id, Model model){
 		Star star = starServices.getObj(id);
+		List<Attachment> images = attachmentService.getByStar(star);
 		model.addAttribute("star", star);
+		model.addAttribute("images", images);
 		return "star/info";
 	}
-	@RequestMapping(value="{/id}/modify", method={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/{id}/modify", method={RequestMethod.GET, RequestMethod.POST})
 	public String modifyStar(@PathVariable("id") String id, Model model){
 		Star star = starServices.getObj(id);
 		model.addAttribute("star", star);

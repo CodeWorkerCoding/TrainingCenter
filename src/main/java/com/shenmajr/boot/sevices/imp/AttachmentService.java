@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.imageio.ImageIO;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.shenmajr.boot.domain.Attachment;
+import com.shenmajr.boot.domain.Star;
 import com.shenmajr.boot.domain.Status;
 import com.shenmajr.boot.repo.AttachmentRepo;
 
@@ -145,6 +147,12 @@ public class AttachmentService {
 			}
 		}
 		return false;
+	}
+	public List<Attachment> getAllByStar(String _id) {
+		return attachmentRepo.findAllByStar(_id);
+	}
+	public List<Attachment> getByStar(Star star){
+		return attachmentRepo.findByStar(star);
 	}
 	public String getAttachdir() {
 		return attachdir;

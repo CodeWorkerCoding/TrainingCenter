@@ -23,8 +23,10 @@ public class CommonConfiguration extends WebMvcConfigurerAdapter {
 			.excludePathPatterns("/login**")
 			.excludePathPatterns("/userandrole/**");
 		registry.addInterceptor(commonInterceptor)
-			.addPathPatterns("/star/**")
-			.addPathPatterns("/ed2k/**");
+			.addPathPatterns("/**")
+			.excludePathPatterns("/login**")
+			.excludePathPatterns("/userandrole/**")
+			.excludePathPatterns("/home/**");
 	}
 	
 }

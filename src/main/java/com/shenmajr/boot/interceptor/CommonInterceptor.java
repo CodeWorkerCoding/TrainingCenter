@@ -31,7 +31,7 @@ public class CommonInterceptor implements HandlerInterceptor {
 		 * SAMEORIGIN：frame页面的地址只能为同源域名下的页面
 		 * ALLOW-FROM：origin为允许frame加载的页面地址
 		 */
-		response.setHeader("X-Frame-Options", "ALLOW-FROM");
+		response.setHeader("X-Frame-Options", "SAMEORIGIN");
 	}
 
 	@Override
