@@ -29,6 +29,9 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<input type="hidden" 
+				   	name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
 				<label for="areaed2k" class="col-sm-2 control-label">Ed2ks</label>
 				<div class="col-sm-8">
 					<textarea id="areaed2k" rows="15" class="form-control" placeholder="请输入Ed2k地址...." name="ed2k" aria-describedby="areahelp" required="required"></textarea>

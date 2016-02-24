@@ -54,6 +54,8 @@ public class Star implements Serializable  {
 			mappedBy="star")
 	private Set<Attachment> images;
 	
+	private String 	lately; //最近上传图片的URL
+	
 	private Date createTime;
 	private Date updateTime;
 	
@@ -136,5 +138,21 @@ public class Star implements Serializable  {
 
 	public void setRecordStatus(Status recordStatus) {
 		this.recordStatus = recordStatus;
+	}
+
+	public Set<Attachment> getImages() {
+		return images;
+	}
+
+	public void setImages(Set<Attachment> images) {
+		this.images = images;
+	}
+
+	public String getLately() {
+		return lately;
+	}
+
+	public void setLately(String lately) {
+		this.lately = lately;
 	}
 }

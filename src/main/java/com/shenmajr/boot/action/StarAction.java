@@ -25,6 +25,7 @@ import com.shenmajr.boot.domain.Star;
 import com.shenmajr.boot.domain.Status;
 import com.shenmajr.boot.sevices.StarServices;
 import com.shenmajr.boot.sevices.imp.AttachmentService;
+import com.shenmajr.boot.utils.CommonUtils;
 
 @Controller
 @RequestMapping(value="/star")
@@ -59,6 +60,8 @@ public class StarAction {
 			attachment.setStar(saveStar);
 			Attachment saveAttach = attachmentService.upload(file,attachment);
 			if (saveAttach != null) {
+				saveStar.setLately(CommonUtils.subImageUrl(saveAttach.getUrl()));
+				starServices.update(saveStar);
 				out.print("添加成功明星成功");
 				return "redirect:/star/allbypage";
 			}

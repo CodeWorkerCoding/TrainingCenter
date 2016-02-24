@@ -1,5 +1,7 @@
 package com.shenmajr.boot.interceptor;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,8 +23,9 @@ public class LoggerInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		Principal principal = request.getUserPrincipal();
 		logger.info("request the url is {} by {} in {}",request.getPathInfo(),
-				request.getUserPrincipal().getName(),
+				principal==null ? "Anonymous" : principal.getName(),
 				request.getLocalAddr());
 		return true;
 	}

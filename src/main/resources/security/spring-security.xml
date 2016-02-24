@@ -21,42 +21,42 @@
 	</http>
 	
 	<!-- 使用硬编码的方式，将用户信息写在配置文件中 -->
-	<!-- <authentication-manager>
+	<authentication-manager>
 		<authentication-provider>
 			<user-service>
 				<user name="root" password="root" authorities="ROLE_USER"/>
 			</user-service>
 		</authentication-provider>
-	</authentication-manager> -->
+	</authentication-manager>
 	
 	<!-- 使用数据的存储用户信息 -->
-	<authentication-manager>
+	<!-- <authentication-manager>
 		<authentication-provider user-service-ref="userDetailsService">
 			<password-encoder hash="bcrypt" />
 		</authentication-provider>
 	</authentication-manager>
-	<bean class="org.springframework.security.access.vote.AffirmativeBased"
+	<beans:bean class="org.springframework.security.access.vote.AffirmativeBased"
 		id="affirmativeBased">
-		<property name="decisionVoters">
-			<list>
-				<ref bean="roleVoter" />
-				<ref bean="authenticatedVoter" />
-				<ref bean="expressionVoter" />
-			</list>
-		</property>
-	</bean>
+		<beans:property name="decisionVoters">
+			<beans:list>
+				<beans:ref bean="roleVoter" />
+				<beans:ref bean="authenticatedVoter" />
+				<beans:ref bean="expressionVoter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
 	
-	<bean class="org.springframework.security.access.vote.RoleVoter"
+	<beans:bean class="org.springframework.security.access.vote.RoleVoter"
 		id="roleVoter" />
-	<bean class="org.springframework.security.access.vote.AuthenticatedVoter"
+	<beans:bean class="org.springframework.security.access.vote.AuthenticatedVoter"
 		id="authenticatedVoter" />
-	<bean
+	<beans:bean
 		class="org.springframework.security.web.access.expression.WebExpressionVoter"
 		id="expressionVoter">
-		<property name="expressionHandler" ref="expressionHandler" />
-	</bean>
-	<bean
+		<beans:property name="expressionHandler" ref="expressionHandler" />
+	</beans:bean>
+	<beans:bean
 		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"
-		id="expressionHandler" />
+		id="expressionHandler" /> -->
 		
 </beans:beans>

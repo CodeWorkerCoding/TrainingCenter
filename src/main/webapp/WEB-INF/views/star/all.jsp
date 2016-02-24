@@ -28,7 +28,7 @@
 					<tr>
 						<td>
 							<a href="/star/${star._id}/look">
-								<img alt="" src="/upload/abd801ebdba144c99d4b8378edc7be31/屏幕快照 2016-01-15 下午3.15.44.png" class="img-rounded">
+								<img alt="" src="${star.lately}" class="img-rounded">
 							</a>
 						</td>
 						<%-- <td>${star._id}</td> --%>

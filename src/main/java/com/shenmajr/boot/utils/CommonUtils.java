@@ -9,4 +9,8 @@ public class CommonUtils {
 		}
 		return its;
 	}
+	
+	public static String subImageUrl(String url){
+		return url.substring(42);
+	}
 }

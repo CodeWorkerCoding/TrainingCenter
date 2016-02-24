@@ -28,6 +28,9 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<input type="hidden" 
+			   	name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 			<label for="starimage" class="col-sm-3 control-label">请上传明星图片</label>
 			<div class="col-sm-6">
 				<input type="file" class="form-control" id="starimage" name="image" required="required">
