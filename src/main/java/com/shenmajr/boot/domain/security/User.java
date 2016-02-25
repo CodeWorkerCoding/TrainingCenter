@@ -1,6 +1,5 @@
 package com.shenmajr.boot.domain.security;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
@@ -195,5 +194,33 @@ public class User implements UserDetails {
 
 	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
 		this.authorities = authorities;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((this._id == null) ? 0 : this._id.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		User other = (User) obj;
+		if (this._id == null) {
+			if (other._id != null) {
+				return false;
+			}
+		}else if (! this._id.equals(other._id)) {
+			return false;
+		}
+		return true;
 	}
 }

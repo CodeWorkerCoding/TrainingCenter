@@ -44,7 +44,7 @@
 					<input type="submit" value="登 入" class="btn btn-primary btn-block"/>
 				</div>
 				<div class="col-sm-4">
-					<a href="#" class="btn btn-default"><span>没有账号，去注册 &raquo;</span></a>
+					<a href="/sec/user/add" class="btn btn-default"><span>没有账号，去注册 &raquo;</span></a>
 				</div>
 			</div>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">

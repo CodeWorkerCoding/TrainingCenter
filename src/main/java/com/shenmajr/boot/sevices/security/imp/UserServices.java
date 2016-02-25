@@ -16,6 +16,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.shenmajr.boot.domain.Status;
 import com.shenmajr.boot.domain.security.Role;
@@ -25,7 +26,6 @@ import com.shenmajr.boot.repo.security.UserRepo;
 import com.shenmajr.boot.sevices.security.UserInterface;
 
 @Transactional
-@Component(value="userDetailsService")
 public class UserServices implements UserInterface {
 	
 	private Logger logger = LoggerFactory.getLogger(UserServices.class);

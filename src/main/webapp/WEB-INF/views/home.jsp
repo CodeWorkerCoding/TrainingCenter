@@ -113,7 +113,7 @@
 
           <!-- <h3 class="sub-header">明星</h3> -->
           <div class="table-responsive">
-          		<iframe class="myiframe" src="/star/allbypage">
+          		<iframe class="myiframe" src="/star/allbypage" scrolling="yes" frameborder="0" >
           		</iframe>          		
             <!-- <table class="table table-striped">
               <thead>
