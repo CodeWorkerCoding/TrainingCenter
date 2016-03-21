@@ -22,7 +22,8 @@ public class CommonSechedule {
 	 */
 	@Scheduled(cron = "0 0/1 * * * ?")
 	public void sayGeet(){
-		logger.info(CommonUtils.formate(new Date(), "yyyy-MM-dd HH:mm:ss") + "启动定时任务");
+		logger.info(CommonUtils.formate(new Date(), "yyyy-MM-dd HH:mm:ss") + "Start the schedule Task");
 		System.out.println("\n\nHelloWorld\n\n");
+		System.out.println("Allen");
 	}
 }

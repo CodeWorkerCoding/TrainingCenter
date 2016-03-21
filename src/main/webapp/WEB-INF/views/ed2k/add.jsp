@@ -42,7 +42,7 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-8">
-					<button type="submit" class="btn btn-primary" id="submit" disabled="disabled">提交</button>
+					<button type="submit" class="btn btn-primary" id="submit">提交</button>
 					<button type="reset" class="btn btn-default">重新提交</button>
 				</div>
 			</div>

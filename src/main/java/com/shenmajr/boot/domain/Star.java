@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.shenmajr.boot.utils.UUIDUtil;
 
@@ -36,6 +38,13 @@ public class Star implements Serializable  {
 	 * 别名
 	 */
 	private String nickname;
+	
+	/**
+	 * 年龄
+	 */
+	@Max(value=40, message="年龄不能大于40岁")
+	@Min(value=16, message="年龄不能小于16岁")
+	private Integer age;
 	/**
 	 * 三围
 	 */
@@ -90,6 +99,14 @@ public class Star implements Serializable  {
 
 	public void setName(String name) {
 		this.name = name == null ? null : name.trim();
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
 	public String getNickname() {

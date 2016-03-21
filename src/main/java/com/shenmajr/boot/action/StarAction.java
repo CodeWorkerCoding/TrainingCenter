@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.shenmajr.boot.domain.Attachment;
@@ -26,6 +27,7 @@ import com.shenmajr.boot.domain.Status;
 import com.shenmajr.boot.sevices.StarServices;
 import com.shenmajr.boot.sevices.imp.AttachmentService;
 import com.shenmajr.boot.utils.CommonUtils;
+import com.shenmajr.boot.utils.UUIDUtil;
 
 @Controller
 @RequestMapping(value="/star")
@@ -165,5 +167,16 @@ public class StarAction {
 		Star star = starServices.getObj(id);
 		model.addAttribute("star", star);
 		return "star/modify";
+	}
+	
+	@RequestMapping(value="/validate", method=RequestMethod.GET)
+	@ResponseBody
+	public String createStar(Star star){
+		star.set_id(UUIDUtil.genUUID());
+		star.setAge(15);
+		star.setName("sghsaifjso");
+		star.setNickname("abc");
+		starServices.create(star);
+		return "completed";
 	}
 }

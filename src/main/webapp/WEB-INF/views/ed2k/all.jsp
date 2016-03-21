@@ -26,7 +26,14 @@
 				<tr>
 					<td><a href="/ed2k/${ed2k._id}/look">${ed2k.designation}</a></td>
 					<td><a href="/star/${ed2k.star._id}/look">${ed2k.star.name}</a></td>
-					<td><a href="${ed2k.ed2k}"><span class="ed2k">${ed2k.ed2k}</span></a></td>
+					<td><a href="${ed2k.ed2k}" title="${ed2k.ed2k}"><span class="ed2k">
+						<c:when test="${fn:length(ed2k.ed2k) > 10 }">
+							<c:out value="${fn:substring(ed2k.ed2k,0,10)}..."/>
+						</c:when>
+						<c:otherwise>
+							<c:out value="${ed2k.ed2k}"/>
+						</c:otherwise>
+					</span></a></td>
 					<td>
 						<fmt:formatDate value="${ed2k.createTime}" pattern="yyyy-MM-dd"></fmt:formatDate>
 					</td>

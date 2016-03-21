@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登入...</title>
 </head>
-<body>
+<body style="background-color:#333;">
 	<div class="mylogin panel panel-default">
 		<form action="<c:url value='j_spring_security_check' />" method="POST" class="form-horizontal">
 			<div class="form-group">
@@ -20,16 +20,18 @@
 			<c:if test="${not empty msg}">
 				<div class="for-group msg">${msg}</div>
 			</c:if>
-			<div class="form-group">
+			<div class="form-group has-feedback">
 				<label class="col-sm-3 control-label" for="useraccount">用户名:</label>
 				<div class="col-sm-7">
 					<input type="text" name="username" id="useraccount" class="form-control" placeholder="用户名" required="required" autofocus="true"/>
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 			</div>
-			<div class="form-group">
+			<div class="form-group has-feedback">
 				<label class="col-sm-3 control-label" for="password">密码:</label>
 				<div class="col-sm-7">
 					<input type="password" name="password" id="password" class="form-control" placeholder="密码" required="required" />
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 			</div>
 			<div class="form-group">
