@@ -2,7 +2,6 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.shenmajr.boot</groupId>
-  <artifactId>boot-app</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>boot-app Maven Webapp</name>
@@ -21,6 +20,18 @@
 	</properties>
 
 	<dependencies>
+		<!-- local project dependency -->
+		<dependency>
+			<groupId>com.shenmajr.boot</groupId>
+			<artifactId>TrainCenterDomain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.shenmajr.boot</groupId>
+			<artifactId>TrainCenter-Service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -115,4 +126,5 @@
 		</plugins>
 	</build>
 	
+	<artifactId>boot-app</artifactId>
 </project>

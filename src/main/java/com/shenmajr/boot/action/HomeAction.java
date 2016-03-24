@@ -1,21 +1,32 @@
 package com.shenmajr.boot.action;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.shenmajr.boot.domain.item.Item;
+import com.shenmajr.boot.service.item.ItemService;
+
 @Controller
 public class HomeAction {
 
 	private Logger logger = LoggerFactory.getLogger(HomeAction.class);
+	@Autowired
+	private ItemService itemService;
 	
 	@RequestMapping("/home")
-	public String greet() {
+	public String greet(Map<String, Object> model) {
 		logger.info("this is greet Method");
+		List<Item> items = itemService.getAll();
+		model.put("items", items);
 		return "home";
 	}
 	
